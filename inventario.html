@@ -11,6 +11,51 @@
 </head>
 
 <style>
+    @font-face {
+        font-family: apyNyala;
+        /* primera opción, tipo de letra EOT, no admite 
+            usar opciones  */
+        src: url('fuentes/apyNyala.ttf');
+        /* opciones en orden de prioridad deseada para 
+            importar los tipos de letra */
+        src: 
+        local(“Cantarell Bold”),
+        url(‘font/cantarell-bold-webfont.eot?#iefix’) 
+                        format(‘embedded-opentype’),
+        url(‘font/cantarell-bold-webfont.woff’) 
+                                        format(‘woff’),
+        url(‘font/cantarell-bold-webfont.ttf’) 
+                                        format(‘truetype’),
+        url(‘font/cantarell-bold-webfont.svg#cantarellbold’) 
+                        format(‘svg’);
+        font-weight: bold;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: BlackMetalSans;
+        /* primera opción, tipo de letra EOT, no admite 
+            usar opciones  */
+        src: url('fuentes/BlackMetalSans.ttf');
+        /* opciones en orden de prioridad deseada para 
+            importar los tipos de letra */
+        src: 
+        local(“Cantarell Bold”),
+        url(‘font/cantarell-bold-webfont.eot?#iefix’) 
+                        format(‘embedded-opentype’),
+        url(‘font/cantarell-bold-webfont.woff’) 
+                                        format(‘woff’),
+        url(‘font/cantarell-bold-webfont.ttf’) 
+                                        format(‘truetype’),
+        url(‘font/cantarell-bold-webfont.svg#cantarellbold’) 
+                        format(‘svg’);
+        font-weight: bold;
+        font-style: normal;
+    }
+
+    *{
+        font-family: BlackMetalSans;
+    }
     html{
         height: 100%;
     }
@@ -50,7 +95,7 @@
 
         left: 50%;
         top: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(-50%, -40%);
     }
 
     .paginacion{
@@ -59,7 +104,7 @@
         text-align: center;
 
         left: 50%;
-        top: 80%;
+        top: 90%;
 
         transform: translateX(-50%);
     }
@@ -81,6 +126,7 @@
 
 
     .cantidad{
+        font-size: 18px;
         position: absolute;
         background-color: black;
         padding-left: 10px;
@@ -114,6 +160,25 @@
         transform: translate(-50%, -50%);
     }
 
+    .seleccionar{
+        font-size: 20px;
+    }
+
+    #type_item{
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    @media(max-width:995px){
+        .seleccionar{
+            text-align: start !important;
+        }
+    }
+
+    
+    
+
+
 
 </style>
 <body>
@@ -125,16 +190,36 @@
         </div>
     </div>
 
+    <div class="offset-md-2 col-md-8">
+        <div class="row">
+            <div class="seleccionar col-lg-2 pt-1 text-light text-end">
+                Seleccione:
+            </div>
+            <div class="col-md-4">
+                <select id="type_item" class="form-select" name="type_item">
+                    <option value=0>Todo</option>
+                    <option value=1>Neumáticos</option>
+                    <option value=2>Frenos</option>
+                    <option value=3>Alerón</option>
+                    <option value=4>Nitro</option>
+                    <option value=5>Motor</option>
+                    <option value=6>Vehículo</option>
+                </select>
+            </div>
+        </div>
+    </div>
     <div class="container col-md-8">
         <h1 class="text-center text-light">INVENTARIO</h1>
 
         <div class="col-md-12 row">
-            <div class="col-md-3 item">
-                <img class="fondo" src="/fondo.png" width="100%">
-                <div class="cantidad">x0</div>
-                <img src="/llanta.png" class="imagen-item">
-                <div class="nombre">Item</div>
-            </div>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                <div class="col-md-3 item">
+                    <img class="fondo" src="/fondo.png" width="100%">
+                    <div class="cantidad">x0</div>
+                    <img src="/llanta.png" class="imagen-item">
+                    <div class="nombre">Item</div>
+                </div>
+            </a>
             <div class="col-md-3 item">
                 <img class="fondo" src="/fondo.png" width="100%">
                 <div class="cantidad">x0</div>
@@ -171,6 +256,63 @@
         <div class="numero me-1">21</div>
         <div class="numero me-1">22</div>
         <div class="numero">></div>
+    </div>
+
+    <style>
+        .marco-item{
+            position: relative;
+            
+        }
+
+        .item-modal{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+    </style>
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-modal="true" role="dialog" style="display: none;">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content" style="background-color: #451465;">
+                <div class="modal-header">
+                    <h5 class="modal-title text-light" id="exampleModalCenterTitle" style="font-weight: bold;">LLANTA LV5</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="height: 30vh">
+                    <div class="row">
+                        <div class="offset-md-2 col-md-4">
+                            <div class="col-md-12 item">
+                                <img class="fondo" src="/fondo.png" width="100%">
+                                <img src="/llanta.png" class="imagen-item">
+                            </div>
+                        </div>
+                        <div class="col-md-4 marco-item">
+                            <div class="item-modal m-0">
+                                <div class="row">
+                                    <div class="col-md-6 text-light">Nivel: &nbsp;</div>
+                                    <div class="col-md-6 text-light">2</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 text-light">Cantidad: &nbsp;</div>
+                                    <div class="col-md-6 text-light">1</div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 text-light">Manejo: &nbsp;</div>
+                                    <div class="col-md-6 text-light">+20</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">EQUIPAR</button>
+                    <button type="button" class="btn btn-primary">VENDER</button>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
