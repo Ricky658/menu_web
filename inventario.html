@@ -160,6 +160,15 @@
         transform: translate(-50%, -50%);
     }
 
+    .imagen-item-small{
+        width:20%;
+        position: absolute;
+        
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
     .seleccionar{
         font-size: 20px;
     }
@@ -267,12 +276,24 @@
     </div>
 
     <style>
+        .marco-item-small{
+            position: relative;
+            height: 40%;
+        }
+
         .marco-item{
             position: relative;
-            
+            height: 100%;
         }
 
         .item-modal{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .item-modal-fondo{
             position: absolute;
             left: 50%;
             top: 50%;
@@ -286,38 +307,153 @@
             <div class="modal-content" style="background-color: #451465;">
                 <div class="modal-header">
                     <h5 class="modal-title text-light" id="exampleModalCenterTitle" style="font-weight: bold;">LLANTA LV5</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" style="height: 30vh">
-                    <div class="row">
-                        <div class="offset-md-2 col-md-4">
-                            <div class="col-md-12 item">
+                    <div class="row" style="height: 100%">
+                        <div class="offset-md-2 col-md-4 marco-item">
+                            <div class="col-md-12 item-modal">
                                 <img class="fondo" src="/fondo.png" width="100%">
                                 <img src="/llanta.png" class="imagen-item">
                             </div>
                         </div>
                         <div class="col-md-4 marco-item">
-                            <div class="item-modal m-0">
+                            <div class="offset-md-1 item-modal col-md-10 m-0">
                                 <div class="row">
-                                    <div class="col-md-6 text-light">Nivel: &nbsp;</div>
-                                    <div class="col-md-6 text-light">2</div>
+                                    <div class="col-md-7 text-light">Nivel: &nbsp;</div>
+                                    <div class="col-md-5 text-light">2</div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6 text-light">Cantidad: &nbsp;</div>
-                                    <div class="col-md-6 text-light">1</div>
+                                    <div class="col-md-7 text-light">Cantidad: &nbsp;</div>
+                                    <div class="col-md-5 text-light">1</div>
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-6 text-light">Manejo: &nbsp;</div>
-                                    <div class="col-md-6 text-light">+20</div>
+                                    <div class="col-md-7 text-light">Manejo: &nbsp;</div>
+                                    <div class="col-md-5 text-light">+20</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">EQUIPAR</button>
+                    <a href="#" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modalEquipar">EQUIPAR</a>
+                    <!--button type="button" class="btn btn-secondary" data-bs-dismiss="modal">EQUIPAR</button-->
                     <button type="button" class="btn btn-primary">VENDER</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        
+
+        #myProgress {
+            position: relative;
+            width: 100%;
+            height: 10px;
+            background-color: rgb(255, 255, 255);
+        }
+
+
+        #myActual {
+            position: absolute;
+            /*width: 85%;*/
+            height: 100%;
+            background-color: #320ad3;
+        }
+
+        
+        #myAdding {
+            position: absolute;
+            /*width: 95%;*/
+            height: 100%;
+            background-color: #4CAF50;
+        }
+    </style>
+
+    <div class="modal fade" id="modalEquipar" tabindex="-1" aria-labelledby="modalEquiparTitulo" aria-modal="true" role="dialog" style="display: none;">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content" style="background-color: #451465;">
+                <div class="modal-header">
+                    <h5 class="modal-title text-light" id="modalEquiparTitulo" style="font-weight: bold;">Modificar Vehículo</h5>
+                    <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="height: 40vh">
+                    <div class="row" style="height: 100%">
+                        <div class="offset-md-2 col-md-2 marco-item-small text-light">
+                            <label class="item-modal">Lv5</label>
+                        </div>
+                        <div class="col-md-4 marco-item-small">
+                            <div class="col-md-12 item-modal">
+                                <img class="imagen-item-small" src="/fondo.png" style="width:60% !important">
+                                <img src="/llanta.png" class="imagen-item-small">
+                            </div>
+                        </div>
+                        <div class="col-md-3 marco-item-small">
+                            <div class="offset-md-1 item-modal col-md-10 m-0">
+                                <div class="row">
+                                    <div class="col-md-7 text-light p-0">Nivel: &nbsp;</div>
+                                    <div class="col-md-5 text-light p-0">2</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-7 text-light p-0">Cant: &nbsp;</div>
+                                    <div class="col-md-5 text-light p-0">1</div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-7 text-light p-0">Manejo: &nbsp;</div>
+                                    <div class="col-md-5 text-light p-0">+20</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12" style="height: 60%;">
+                            <div class="row">
+                                <div class="col-md-1 numero me-1 text-light"><</div>
+                                <div class="col-md-10">
+                                    <div class="row col-md-12">
+                                        <div class="col-md-4">
+                                            <div class="row">
+                                                <div class="col-md-5 text-end text-light">Veloc:</div>
+                                                <div class="col-md-7">
+                                                    <div id="myProgress">
+                                                        <div id="myAdding" style="width:68%"></div>
+                                                        <div id="myActual" style="width:65%"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-5 text-end text-light">Man:</div>
+                                                <div class="col-md-7">
+                                                    <div id="myProgress">
+                                                        <div id="myAdding" style="width:82%"></div>
+                                                        <div id="myActual" style="width:62%"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-5 text-end text-light">Acel:</div>
+                                                <div class="col-md-7">
+                                                    <div id="myProgress">
+                                                        <div id="myAdding" style="width:58%"></div>
+                                                        <div id="myActual" style="width:55%"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-1 numero me-1 text-light">></div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">ACEPTAR</button>
                 </div>
             </div>
         </div>
