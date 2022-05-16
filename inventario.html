@@ -109,14 +109,25 @@
         transform: translateX(-50%);
     }
 
-    .paginacion .numero{
-        width: 50px;
+    .numero{
         height: 40px;
         color: white;
         background-color: black;
         border-radius: 5px;
+        font-size: 22px;
         font-weight: bold;
         padding: 5px;
+        padding-left: 15px;
+        padding-right: 15px;
+
+        text-align: center;
+    }
+
+    .abajo{
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, -45px)
     }
 
     .item{
@@ -202,7 +213,7 @@
     <div class="offset-md-2 col-md-8">
         <div class="row">
             <div class="seleccionar col-lg-2 pt-1 text-light text-end">
-                Seleccione:
+                Filtrar:
             </div>
             <div class="col-md-4">
                 <select id="type_item" class="form-select" name="type_item">
@@ -276,11 +287,6 @@
     </div>
 
     <style>
-        .marco-item-small{
-            position: relative;
-            height: 40%;
-        }
-
         .marco-item{
             position: relative;
             height: 100%;
@@ -346,11 +352,15 @@
     </div>
 
     <style>
-        
+        .item-vehiculo:hover{
+            background-color: black;
+            border-radius: 5px;
+            padding: 5px;
+        }
 
         #myProgress {
             position: relative;
-            width: 100%;
+            width: 80%;
             height: 10px;
             background-color: rgb(255, 255, 255);
         }
@@ -380,80 +390,125 @@
                     <button type="button" class="btn-close bg-light" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" style="height: 40vh">
-                    <div class="row" style="height: 100%">
-                        <div class="offset-md-2 col-md-2 marco-item-small text-light">
-                            <label class="item-modal">Lv5</label>
-                        </div>
-                        <div class="col-md-4 marco-item-small">
-                            <div class="col-md-12 item-modal">
-                                <img class="imagen-item-small" src="/fondo.png" style="width:60% !important">
-                                <img src="/llanta.png" class="imagen-item-small">
-                            </div>
-                        </div>
-                        <div class="col-md-3 marco-item-small">
-                            <div class="offset-md-1 item-modal col-md-10 m-0">
-                                <div class="row">
-                                    <div class="col-md-7 text-light p-0">Nivel: &nbsp;</div>
-                                    <div class="col-md-5 text-light p-0">2</div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-7 text-light p-0">Cant: &nbsp;</div>
-                                    <div class="col-md-5 text-light p-0">1</div>
-                                </div>
+                    <div class="col-md-12" style="height: 40%">
+                        <div class="offset-md-2 col-md-8 row" style="height: 100%; background-color: #5f0e88; border-radius: 5px;">
+                            <div class="col-md-7 marco-item">
+                                <div class="col-md-12 marco-item">
+                                    <img class="imagen-item-small" src="/fondo.png" style="width:60% !important">
+                                    <img src="/llanta.png" class="imagen-item-small" style="width:30% !important">
 
-                                <div class="row">
-                                    <div class="col-md-7 text-light p-0">Manejo: &nbsp;</div>
-                                    <div class="col-md-5 text-light p-0">+20</div>
+                                    <div class="numero abajo text-light">Lv5</div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-12" style="height: 60%;">
-                            <div class="row">
-                                <div class="col-md-1 numero me-1 text-light"><</div>
-                                <div class="col-md-10">
-                                    <div class="row col-md-12">
-                                        <div class="col-md-4">
-                                            <div class="row">
-                                                <div class="col-md-5 text-end text-light">Veloc:</div>
-                                                <div class="col-md-7">
-                                                    <div id="myProgress">
-                                                        <div id="myAdding" style="width:68%"></div>
-                                                        <div id="myActual" style="width:65%"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-5 text-end text-light">Man:</div>
-                                                <div class="col-md-7">
-                                                    <div id="myProgress">
-                                                        <div id="myAdding" style="width:82%"></div>
-                                                        <div id="myActual" style="width:62%"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-5 text-end text-light">Acel:</div>
-                                                <div class="col-md-7">
-                                                    <div id="myProgress">
-                                                        <div id="myAdding" style="width:58%"></div>
-                                                        <div id="myActual" style="width:55%"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            
-                                        </div>
-
+                            <div class="col-md-5 marco-item">
+                                <div class="offset-md-1 item-modal col-md-10 m-0">
+                                    <div class="row">
+                                        <div class="col-md-7 text-light p-0">Nivel: &nbsp;</div>
+                                        <div class="col-md-5 text-light p-0">2</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-7 text-light p-0">Cant: &nbsp;</div>
+                                        <div class="col-md-5 text-light p-0">1</div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-7 text-light p-0">Manejo: &nbsp;</div>
+                                        <div class="col-md-5 text-light p-0">+20</div>
                                     </div>
                                 </div>
-                                <div class="col-md-1 numero me-1 text-light">></div>
                             </div>
                         </div>
-                        
                     </div>
+                    <div class="col-md-12 p-2" style="height: 60%;">
+                        <div class="row" style="height: 100%;">
+                            <div class="col-md-1 marco-item" style="height: 100%; background-color: #5f0e88; border-radius: 5px;">
+                                <div class="numero text-light item-modal"><</div>
+                            </div>
+                            <div class="col-md-10"  style="height: 100%; background-color: #711b9d; border-radius: 5px; padding: 6px;">
+                                <div class="row col-md-12" style="height: 100%;">
+                                    <div class="col-md-4 item-vehiculo">
+                                        <div class="row">
+                                            <div class="col-md-5 text-end text-light" style="font-size: 10px;">Veloc:</div>
+                                            <div class="col-md-7">
+                                                <div id="myProgress">
+                                                    <div id="myAdding" style="width:68%"></div>
+                                                    <div id="myActual" style="width:65%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5 text-end text-light" style="font-size: 10px;">Manej:</div>
+                                            <div class="col-md-7">
+                                                <div id="myProgress">
+                                                    <div id="myAdding" style="width:82%"></div>
+                                                    <div id="myActual" style="width:62%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5 text-end text-light" style="font-size: 10px;">Acel:</div>
+                                            <div class="col-md-7">
+                                                <div id="myProgress">
+                                                    <div id="myAdding" style="width:58%"></div>
+                                                    <div id="myActual" style="width:55%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4 marco-item" style="width: 100%; height: 70%;">
+                                            <div class="col-md-12 item-modal">
+                                                <img class="imagen-item" src="/fondo-amarillo.png" style="width:100% !important">
+                                                <img src="/auto-rojo.png" class="imagen-item" style="width:90% !important">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 item-vehiculo">
+                                        <div class="row">
+                                            <div class="col-md-5 text-end text-light" style="font-size: 10px;">Veloc:</div>
+                                            <div class="col-md-7">
+                                                <div id="myProgress">
+                                                    <div id="myAdding" style="width:68%"></div>
+                                                    <div id="myActual" style="width:65%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5 text-end text-light" style="font-size: 10px;">Manej:</div>
+                                            <div class="col-md-7">
+                                                <div id="myProgress">
+                                                    <div id="myAdding" style="width:82%"></div>
+                                                    <div id="myActual" style="width:62%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5 text-end text-light" style="font-size: 10px;">Acel:</div>
+                                            <div class="col-md-7">
+                                                <div id="myProgress">
+                                                    <div id="myAdding" style="width:58%"></div>
+                                                    <div id="myActual" style="width:55%"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4 marco-item" style="width: 100%; height: 70%;">
+                                            <div class="col-md-12 item-modal">
+                                                <img class="imagen-item" src="/fondo-amarillo.png" style="width:100% !important">
+                                                <img src="/auto-rojo.png" class="imagen-item" style="width:90% !important">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-1  marco-item" style="height: 100%; background-color: #5f0e88; border-radius: 5px;">
+                                <div class="numero text-light item-modal">></div>
+                            </div>
+                        </div>
+                    </div>
+                        
+                    <!--/div-->
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">ACEPTAR</button>
+                    <button type="button" class="btn btn-primary hide">ACEPTAR</button>
                 </div>
             </div>
         </div>
